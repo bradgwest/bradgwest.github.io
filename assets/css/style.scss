@@ -24,13 +24,7 @@
 
 @import "{{ site.theme }}";
 
-body { 
-    background-color: #fff;
-    padding: 50px;
-    font: 16px/1.5 "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #727272;
-    font-weight: 300;
-}
+$base-font-family: "Source Sans Pro", sans-serif !default;
 
 a {
   color: inherit;
