@@ -1,8 +1,37 @@
 ---
 ---
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-weight: 400;
+    font-style: normal;
+    src: url("../fonts/SourceSansPro-Regular.ttf") format("truetype");
+}
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-weight: 600; font-style: normal;
+    src: url("../fonts/SourceSansPro-SemiBold.ttf") format('truetype');
+}
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-weight: 300; font-style: italic;
+    src: url("../fonts/SourceSansPro-Italic.ttf") format('truetype');
+}
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-weight: 600; font-style: italic;
+    src: url("../fonts/SourceSansPro-SemiBoldItalic.ttf") format('truetype');
+}
 
 @import "{{ site.theme }}";
-// TODO Add different font
+
+body { 
+    background-color: #fff;
+    padding: 50px;
+    font: 16px/1.5 "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #727272;
+    font-weight: 300;
+}
+
 a {
   color: inherit;
   text-decoration:none;
