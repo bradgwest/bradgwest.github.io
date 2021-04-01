@@ -3,7 +3,5 @@ theme: jekyll-theme-minimal
 # theme config variables
 title: North 9th
 # Description turned off in default.html
-description: |
-  A smattering of knowledge I've collected and deemed shareable,
-  perhaps only to my future self.
+# description:
 show_downloads: false
