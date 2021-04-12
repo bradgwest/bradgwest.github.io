@@ -1,3 +1,7 @@
+---
+title: "Python Lazy Iteration"
+---
+
 A few days ago I needed to lazily iterate over lines in a file. I quickly
 realized I didn't know what exactly makes iteration lazy. An example
 of what I was trying to do:
