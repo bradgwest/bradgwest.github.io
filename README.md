@@ -12,5 +12,5 @@
 * unsolved problem - data microservices
 -->
 
-WIP. Serving at [north9th.dev](https://www.north9th.dev).
+Serving at [north9th.dev](https://www.north9th.dev).
 
