@@ -89,26 +89,103 @@ correct problem is more important (and more difficult) than designing the correc
 solution.
 
 Without ruthless prioritization, a few things happen:
-* Team goals change in response to new information and customer requests.
+* Team goals change too easily in response to new information and customer requests.
   Developers abandon unfinished work, and soon feel directionless, unsure if
-  their current projects will be put on the back-burner in favor of new
-  initiatives.
+  their current projects will be abandoned in favor of new initiatives.
+* With frequent context switching, developers can't become experts in the
+  technologies the use and software they build. The team doesn't compound
+  its collective knowledge.
 * External trust in the team fades as it abandons work.
 * The comprehensive technical vision for the team's software becomes murky, and
   eventually disappears -- the team becomes reactive, rather than proactive.
 
 Problems in software development don't exist in isolation. Solving C depends
 on solving A _and_ B. Ruthless prioritization ensures that C is indeed the most
-important problem to solve, and that resources are appropriately devoted to
-problems A and B in support of solving C. This is form of compounding your
-resource investment. Or, perhaps we could think of it as moving up the
-abstraction hierarchy. Teams should want to maximize their resource investments
-and build higher and higher abstractions. This requires prioritizing the correct
-work, not simply grabbing issues out of the problem bag.
+important problem to solve, and that resources are allocated to
+problems A and B in support of solving C. This is form of compounding
+resource investment, and you've likely moved up the abstraction hierarchy by
+solving A and B. Teams should maximize their resource investments,
+which requires prioritizing and finishing the correct work.
 
 ### First, Build It The Right Way
 
+If you can't build it the right way, then don't build it at all. It doesn't
+matter how urgent the request is, unless it's an existential threat (i.e.
+security or compliance). The reasoning is simple: once you
+write the software, you will not meaningfully change it. As soon as it "works",
+other processes/software will begin to depend on it, and the difficulty of
+rewriting it grows exponentially. The initial design
+flaws are baked into the very foundation of what you're building, and you should
+act as though it's impossible to eliminate those flaws. When you do refactor, it
+will be because you're responding to either a severe issue, or many months of
+headaches caused by the initial poor design. It is
+_always_ faster and cheaper to build it correctly the
+first time around, no matter how many deadlines you need to miss.
+
 ### Organizational Structure Matters - Data Engineering is a Platform Team
 
-### Summary - Why Is There Nothing Technical In This Post?
+Data engineering is an immature sub-discipline of software engineering. As
+such, the industry lacks a core set of best practices. That's especially true
+in how organizations structure their data engineering squads. Should there be
+a core data engineering team, pods of data engineers distributed amongst product
+teams, or a hybrid approach? And, if there's a central team, where does it live?
+Under the Product sub-org? Alongside Data Science? Different solutions
+work different companies, but I'm sure of one thing: the
+core Data Engineering team should be treated as a platform team, similar to
+the DevOps/PlatOps/Infrastructure groups. This distinction reflects what
+I see as the mission of a core data engineering squad: to build and maintain a
+set of extensible tools and data products that enable a diverse user base to
+store, analyze, and report on data. It also reflects the importance of data in
+company operations -- data should be primary concern for application
+architecture, and this requires that the data engineering squad is at the core
+of platform decisions, not a outsider trying to voice concerns from the
+sidelines.
 
+By treating Data Engineering as a platform team, you make clear the expectation
+that it builds tooling and platform software as opposed to ad-hoc data products.
+This distinction is critical for Data Engineering to scale with the
+organization. Data products need to be built by the users that understand those
+domains best, product engineers, data scientists, ML engineers, or analysts.
+Data engineers build and maintain the abstractions that enable self-service,
+components like schema standards, data discoverability tooling, data quality
+frameworks, data lakes, query engines, streaming frameworks, job schedulers,
+workflow engines.
+
+Failing to treat Data Engineering as a platform team means those engineers will
+drown in an endless stream of ad-hoc data requests[^etl], and, more importantly, will
+lack influence to create lasting data solutions at the application level.
+
+[^etl]: [Engineers Shouldn't Write ETL](https://multithreaded.stitchfix.com/blog/2016/03/16/engineers-shouldnt-write-etl/)
+
+### Summary - Did I Learn Anything Technical?
+
+I didn't intend this post to be entirely non-technical. I learned countless
+technical lessons in the last two and half years[^technical_lessons]. That the
+final product is entirely non-technical leaves me with a closing thought: the
+technical components of building software is, in many ways, an implementation
+detail in operation of a successful team. This isn't to say that
+there aren't extremely difficult technical challenges. If you're a lucky
+(and talented) developer, you are working on truly bleeding edge software. But
+not every company is on the bleeding edge, and not every team at a bleeding edge
+company is itself on that edge. For most developers building a SaaS product.
+the technical
+challenges are solved problem with known solutions. The challenge lies in
+developing effective processes for smoothly implementing those known solutions.
+
+I don't find this organizational process stuff more interesting than developing,
+quite the contrary. But I do think it's incredibly important.
+Every day we're each capable of making horrible non-technical decisions
+that lead to miserable developers and poor outcomes. I'd like to think that
+these lessons are a step in the direction of better decision making.
+
+[^technical_lessons]: A smattering:
+
+    * Tests are not for you, they're a friendly note to future developers:
+    "don't break this API".
+    * If it runs in production, it better have an integration test (not to
+    mention unit tests).
+    * Don't roll your own job scheduling solution, use a distributed cron, or
+    a battle-tested DAG scheduler.
+    * Do not use timestamps, even those to microsecond precision, as unique
+    identifiers in distributed systems. You will have collisions.
+    * Build trust in your systems by making them observable.
