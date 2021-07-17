@@ -1,9 +1,8 @@
 ---
-title: "Observations On Software Engineering: Two Years In"
+title: "Observations On Software Engineering"
 ---
 
-I recently left my first software development job after two and a
-half years in the role. During that time I primarily focused on
+I recently left a development role during which I primarily focused on
 building data systems for processing analytic events of a SaaS platform.
 This post shares a few lessons I learned.
 
@@ -34,6 +33,8 @@ decisions, not an indication your team fails to deliver. It's also a list
 of unsolved problems that should guide future efforts.
 If you're correctly prioritizing work, then you can easily justify "No" to your
 customers by pointing to higher priority work and your supporting evidence[^evidence].
+You never accomplish every user request, so say no to all but the most important
+ones.
 
 [^evidence]: OKRs, RFDs, etc.
 
@@ -165,7 +166,7 @@ lack influence to create lasting data solutions at the application level.
 ### Summary (Did I Learn Nothing Technical)?
 
 I didn't intend this post to be entirely non-technical. I learned countless
-technical lessons in the last two and half years[^technical_lessons]. That the
+technical lessons in past years[^technical_lessons]. That the
 final product is entirely non-technical leaves me with a closing thought: the
 technical challenges of building software are, in many ways, implementation
 details to a successful company or team. This isn't to say that
